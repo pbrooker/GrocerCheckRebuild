@@ -9,6 +9,175 @@
     padding-right: 15px;
 }
 
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #04498c
+}
+
+/*Custom CSS form navbar command navbar elements*/
+.navbar, navbar-inverse{
+    background-color:#04498c!important;
+    background-image: none;
+    border-color: #04498c;
+}
+
+.nav li{
+    background-color:#04498c!important;
+    background-image: none;
+    border-color: #04498c;    
+}
+
+.nav li a{
+    color: #fff
+}
+
+.nav li a:hover{
+    color: #04498c
+}
+
+/* Sets background image and text color for jumbotron content home page */
+.jumbotron {
+background-image: url("../images/grocer-check-jumbotron-image.jpg");
+background-size: cover;
+color: #04498c;
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: #04498c;
+  border-color: #04498c;
+}
+.btn-primary:focus,
+.btn-primary.focus {
+  color: #ffffff;
+  background-color: #1f6ab2;
+  border-color: #1f6ab2;
+}
+.btn-primary:hover {
+  color: #ffffff;
+  background-color: #1f6ab2;
+  border-color: #1f6ab2;
+}
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: #ffffff;
+  background-color: #04498c;
+  border-color: #04498c;
+}
+.btn-primary:active:hover,
+.btn-primary.active:hover,
+.open > .dropdown-toggle.btn-primary:hover,
+.btn-primary:active:focus,
+.btn-primary.active:focus,
+.open > .dropdown-toggle.btn-primary:focus,
+.btn-primary.active.focus,
+.open > .dropdown-toggle.btn-primary.focus {
+  color: #ffffff;
+  background-color: #04498c;
+  border-color: #04498c;
+}
+.btn-primary:active,,
+.open > .dropdown-toggle.btn-primary {
+  background-image: none;
+}
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus,
+.btn-primary[disabled].focus,
+fieldset[disabled] .btn-primary.focus {
+  background-color: #04498c;
+  border-color: #04498c;
+}
+.btn-primary .badge {
+  color: #04498c;
+  background-color: #ffffff;
+}
+
+
+/*Sets CSS for buttons that are outside jumbotron*/
+.btn-default {
+  color: #ffffff;
+  background-color: #04498c;
+  border-color: #04498c;
+}
+.btn-default:focus,
+.btn-default.focus {
+  color: #ffffff;
+  background-color: #1f6ab2;
+  border-color: #1f6ab2;
+}
+.btn-default:hover {
+  color: #ffffff;
+  background-color: #1f6ab2;
+  border-color: #1f6ab2;
+}
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+  color: #ffffff;
+  background-color: #04498c;
+  border-color: #04498c;
+}
+.btn-default:active:hover,
+.btn-default.active:hover,
+.open > .dropdown-toggle.btn-default:hover,
+.btn-default:active:focus,
+.btn-default.active:focus,
+.open > .dropdown-toggle.btn-default:focus,
+.btn-default.active.focus,
+.open > .dropdown-toggle.btn-default.focus {
+  color: #ffffff;
+  background-color: #04498c;
+  border-color: #04498c;
+}
+
+.btn-default.disabled:hover,
+.btn-default[disabled]:hover,
+fieldset[disabled] .btn-default:hover,
+.btn-default.disabled:focus,
+.btn-default[disabled]:focus,
+fieldset[disabled] .btn-default:focus,
+.btn-default.disabled.focus,
+.btn-default[disabled].focus,
+fieldset[disabled] .btn-default.focus {
+  background-color: #04498c;
+  border-color: #04498c;
+}
+
+
+/*Sets CSS for links that are outside jumbotron*/
+.a, a:focus{
+    color: #04498c;
+    text-decoration: none;
+}
+
+a {
+  color: #04498c;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: #1f6ab2;
+  text-decoration: underline;
+}
+a:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -16,9 +185,14 @@
     white-space: normal;
 }
 
+
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
     max-width: 280px;
 }
+
+
+
+

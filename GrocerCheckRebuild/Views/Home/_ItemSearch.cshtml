@@ -1,0 +1,11 @@
+﻿@model IEnumerable<GrocerCheckRebuild.Models.Item>
+<div id="search">
+    @foreach (var item in Model)
+    {
+        <ul>
+            <li>
+                <a href="@Url.Action("Details", "Item", new { id = item.ItemID })">@item.Name: @Html.DisplayFor(model=>item.Price)</a>
+            </li>
+        </ul>
+    }
+</div>

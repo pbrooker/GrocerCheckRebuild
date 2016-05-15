@@ -1,0 +1,81 @@
+﻿@model IEnumerable<GrocerCheckRebuild.Models.Item>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Brand.BrandName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grocer.GrocerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Size.SizeDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SizeType.SizeTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StandardID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SizeMeasure)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CalculatedPrice)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Brand.BrandName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Grocer.GrocerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Size.SizeDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SizeType.SizeTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StandardID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SizeMeasure)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CalculatedPrice)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ItemID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ItemID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ItemID })
+        </td>
+    </tr>
+}
+
+</table>

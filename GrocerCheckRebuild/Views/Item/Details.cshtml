@@ -1,0 +1,98 @@
+﻿@model GrocerCheckRebuild.Models.Item
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Item</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Brand.BrandName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brand.BrandName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.CategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Grocer.GrocerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grocer.GrocerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Size.SizeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Size.SizeDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SizeType.SizeTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SizeType.SizeTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StandardID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StandardID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SizeMeasure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SizeMeasure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CalculatedPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CalculatedPrice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ItemID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

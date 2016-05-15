@@ -1,0 +1,128 @@
+﻿@*@model IEnumerable<GrocerCheckRebuild.Models.Item>*@
+@model GrocerCheckRebuild.ViewModels.ItemIndexData
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<div class="panel panel-default">  
+    <div class="panel-body">
+        <table class="table">
+            <tr>
+                <th></th>
+                <th>Brand Name</th>
+                <th></th>
+                <th>Categories</th>
+            </tr>
+               
+            @foreach (var item in Model.Brands)
+            {
+                string selectedRow = "";
+                if (item.BrandID == ViewBag.BrandID)
+                {
+                    selectedRow = "success";
+                }
+                <tr class="@selectedRow">
+                    <td><img src="~/images/@(item.BrandID).png"</td>
+                    <td>@Html.DisplayFor(modelItem=>item.BrandName)</td>
+                    <td>@Html.ActionLink("Select", "Index", new { BrandID = item.BrandID })</td>
+                    <td>
+                        @*list of categories*@
+                        @{
+                            foreach (var category in item.Categories)
+                            {
+                                @category.CategoryName<br/>
+                            }
+                        }
+                    </td>
+                </tr>
+                }
+        </table>
+    </div>
+       
+</div>
+@if(Model.Categories !=null)
+{
+    <h3>Categories available in Brand: @ViewBag.BrandName</h3>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+
+                    <th>Category</th>
+                    <th>Items</th>
+                    <th>Grocers</th>
+                </tr>
+                @foreach (var item in Model.Categories)
+                {
+                    string selectedRow = "";
+                    if (item.CategoryID == ViewBag.CategoryID)
+                    {
+                        selectedRow = "success";
+                    }
+                    <tr class="@selectedRow">
+                        <td>@item.CategoryName</td>
+                        <td>
+                            @*list of items*@
+                            @{
+                                foreach (var selection in item.Items)
+                                {
+                                    @selection.Name @: &nbsp @Html.ActionLink("Select", "Details", new { id = selection.ItemID })<br />
+                            }
+                            }
+                        </td> 
+                        <td>
+                            @*list of Grocers*@
+                            @{
+                                foreach (var selection in item.Grocers)
+                                {
+                                    @selection.GrocerName @: &nbsp @Html.ActionLink("Select", "Index", new { GrocerID = selection.GrocerID })<br />
+                            }
+                            }
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+}
+
+@if(Model.Grocers !=null)
+{
+    <h3>Categories at @ViewBag.GrocerName</h3>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <th>Category</th>
+                    <th></th>
+                    <th>Items</th>
+
+                </tr>
+                <tr>
+                    @foreach (var item in Model.Items)
+                {
+                        <td>@item.Category.CategoryName</td>
+                        <td></td>
+                        <td>
+                            @*list of items*@
+                            @{
+                                foreach (var selection in item.Category.Items)
+                                {
+                                    @selection.Name @: &nbsp @Html.ActionLink("Select", "Details", new { id = selection.ItemID })<br />
+                                }
+                            }
+                        </td>
+
+                }
+                </tr>
+            </table>
+        </div>
+    </div>
+}
+
+
+                @Html.ActionLink("Return Home", "Index", "Home")

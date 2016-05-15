@@ -1,0 +1,8 @@
+﻿@{
+            IEnumerable<GrocerCheckRebuild.Models.Category> list = new GrocerCheckRebuild.DAL.GrocerCheckRebuildContext().Categories;
+
+            foreach (var item in list)
+            {
+                <li>@Html.ActionLink(item.CategoryName, "SortPriceByCategory", "Item", new { CategoryName = item.CategoryName }, "")</li>
+            }
+}

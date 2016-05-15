@@ -1,0 +1,15 @@
+﻿<li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort Prices <span class="caret"></span></a>
+    <ul class="dropdown-menu">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Category <span class="caret"></span></a>
+            <ul >
+                @Html.Partial("_CategoryPartial")
+            </ul>
+        </li>
+
+        <li>@Html.ActionLink("Brand", "SortPriceByBrand", "Item")</li>
+        <li>@Html.ActionLink("Grocer", "SortPriceByGrocer", "Item")</li>
+        <li>@Html.ActionLink("Item", "SortPriceByItem", "Item")</li>
+    </ul>
+</li>

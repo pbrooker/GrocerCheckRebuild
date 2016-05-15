@@ -19,7 +19,35 @@ namespace GrocerCheckRebuild
         public Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+            //return Task.FromResult(0);
+            //pbrooker: add gmail
+
+            //credentials
+            var credentialUserName = "info.four70designs@gmail.com";
+            var sentFrom = "\"GrocerCheck.com\"<info.four70designs@gmail.com>";
+            var pwd = "n65L4x19qY5fxZmp";
+
+            //Configure the client
+            System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient("smtp.gmail.com");
+            client.Port = 587;
+            client.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+
+            //creat the credentials
+            System.Net.NetworkCredential credentials = new System.Net.NetworkCredential(credentialUserName, pwd);
+
+            client.EnableSsl = true;
+            client.Credentials = credentials;
+
+            //create the message
+            var mail = new System.Net.Mail.MailMessage(sentFrom, message.Destination);
+            mail.Subject = message.Subject;
+            mail.Body = message.Body;
+
+            //send
+            return client.SendMailAsync(mail);
+
+
         }
     }
 
