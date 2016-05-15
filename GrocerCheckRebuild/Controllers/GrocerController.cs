@@ -37,6 +37,8 @@ namespace GrocerCheckRebuild.Controllers
         }
 
         // GET: Grocer/Create
+        // GET: Brand/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +49,8 @@ namespace GrocerCheckRebuild.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        // GET: Brand/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "GrocerID,GrocerName")] Grocer grocer)
         {
             if (ModelState.IsValid)
@@ -60,6 +64,8 @@ namespace GrocerCheckRebuild.Controllers
         }
 
         // GET: Grocer/Edit/5
+        // GET: Brand/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -79,6 +85,8 @@ namespace GrocerCheckRebuild.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        // GET: Brand/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "GrocerID,GrocerName")] Grocer grocer)
         {
             if (ModelState.IsValid)
@@ -91,6 +99,8 @@ namespace GrocerCheckRebuild.Controllers
         }
 
         // GET: Grocer/Delete/5
+        // GET: Brand/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -108,6 +118,8 @@ namespace GrocerCheckRebuild.Controllers
         // POST: Grocer/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        // GET: Brand/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Grocer grocer = db.Grocers.Find(id);

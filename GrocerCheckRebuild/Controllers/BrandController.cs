@@ -39,6 +39,8 @@ namespace GrocerCheckRebuild.Controllers
         }
 
         // GET: Brand/Create
+        // GET: Brand/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -49,6 +51,8 @@ namespace GrocerCheckRebuild.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        // GET: Brand/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Create([Bind(Include = "BrandName")] Brand brand, HttpPostedFileBase ImageName)
         {
             if (ModelState.IsValid)
@@ -80,19 +84,29 @@ namespace GrocerCheckRebuild.Controllers
                     string pictureName = brand.BrandID.ToString();
 
                     //rename scale and upload image
-                    ImageUpload imageupload = new ImageUpload { Width = 200 };
+                    ImageUpload imageUpload = new ImageUpload { Height = 100 };
+                    ImageResult imageResult = imageUpload.RenameUploadFile(ImageName, pictureName);
+
                     return RedirectToAction("Index");
-                }//else
-                //    {
-                //        //nothing to upload - display error
-                //        ModelState.AddModelError("", "You have not selected an image file to upload.");
-                //        return View(brand);
-                //    }
+                }
+                else
+                {
+
+                    var errors = ModelState
+                    .Where(x => x.Value.Errors.Count > 0)
+                    .Select(x => new { x.Key, x.Value.Errors })
+                    .ToArray();
+                    //nothing to upload - display error
+                    ModelState.AddModelError("", "You have not selected an image file to upload.");
+                    return View(brand);
+                }
             }
                 return View(brand);
         }
 
         // GET: Brand/Edit/5
+        // GET: Brand/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -124,6 +138,7 @@ namespace GrocerCheckRebuild.Controllers
         }
 
         // GET: Brand/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -141,6 +156,8 @@ namespace GrocerCheckRebuild.Controllers
         // POST: Brand/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        // GET: Brand/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Brand brand = db.Brands.Find(id);

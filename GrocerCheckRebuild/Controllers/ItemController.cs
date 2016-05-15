@@ -85,6 +85,8 @@ namespace GrocerCheckRebuild.Controllers
         }
 
         // GET: Item/Create
+        // GET: Brand/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             ViewBag.BrandID = new SelectList(db.Brands, "BrandID", "BrandName");
@@ -100,6 +102,8 @@ namespace GrocerCheckRebuild.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        // GET: Brand/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "Name,StandardID,Price,SizeMeasure,CalculatedPrice,SizeID,BrandID,CategoryID,GrocerID,SizeTypeID")] Item item)
         {
             if (ModelState.IsValid)
@@ -118,6 +122,8 @@ namespace GrocerCheckRebuild.Controllers
         }
 
         // GET: Item/Edit/5
+        // GET: Brand/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -142,6 +148,8 @@ namespace GrocerCheckRebuild.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        // GET: Brand/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "ItemID,Name,StandardID,Price,SizeMeasure,CalculatedPrice,SizeID,BrandID,CategoryID,GrocerID,SizeTypeID")] Item item)
         {
             if (ModelState.IsValid)
@@ -159,6 +167,8 @@ namespace GrocerCheckRebuild.Controllers
         }
 
         // GET: Item/Delete/5
+        // GET: Brand/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -176,6 +186,8 @@ namespace GrocerCheckRebuild.Controllers
         // POST: Item/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        // GET: Brand/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Item item = db.Items.Find(id);
